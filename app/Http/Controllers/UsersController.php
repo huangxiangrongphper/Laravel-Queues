@@ -12,7 +12,7 @@ class UsersController extends Controller
 {
     public function store()
     {
-        $users = User::where('id','>',24)->get();
+        $users = User::where('id','<',6)->get();
 
         foreach ($users as  $user) {
             $this->dispatch(new SendReminderEmail($user));
